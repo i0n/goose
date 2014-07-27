@@ -4,7 +4,7 @@ import(
   "fmt"
   "os"
   "github.com/i0n/goose/lib/BlueDragonX/go-supervisor/supervisor"
-) 
+)
 
 func main() {
     done := make(chan bool)
