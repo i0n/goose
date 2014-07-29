@@ -22,7 +22,8 @@ func main() {
             fmt.Fprintf(os.Stderr, "Got event: %s\n", event)
             if event.Name() == "PROCESS_STATE_FATAL" {
               fmt.Fprintf(os.Stderr, "Killing!\n")
-              syscall.Kill(1, syscall.SIGKILL)
+              // Trying to call -1 here as you cannot stop pid 1 by calling '1'
+              syscall.Kill(-1, syscall.SIGKILL)
               //syscall.Kill(syscall.Getpid(), syscall.SIGKILL)
             } else {
               fmt.Fprintf(os.Stderr, "Non Fatal!\n")
