@@ -29,10 +29,3 @@ GOOS=linux GOARCH=amd64 go build \
     -v \
     -o bin/linux/goose
 cp bin/linux/goose $(echo $GOPATH | sed -e 's/:.*//g')/bin
-
-echo "--> Building Windows Binary..."
-GOOS=windows GOARCH=386 go build \
-    -ldflags "-X main.GitCommit ${GIT_COMMIT}${GIT_DIRTY}" \
-    -v \
-    -o bin/windows/goose.exe
-cp bin/windows/goose.exe $(echo $GOPATH | sed -e 's/:.*//g')/bin
